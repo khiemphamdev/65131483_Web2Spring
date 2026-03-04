@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Máy tính cá nhân</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f9; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .calc-card { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 320px; }
+        h2 { text-align: center; color: #333; }
+        input, select, button { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; font-size: 16px; }
+        button { background-color: #007bff; color: white; border: none; cursor: pointer; transition: 0.3s; }
+        button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+
+<div class="calc-card">
+    <h2>Máy tính</h2>
+    <form action="result.jsp" method="post">
+        <input type="number" name="num1" placeholder="Số thứ nhất" step="any" required>
+        
+        <select name="operator">
+            <option value="add">Cộng (+)</option>
+            <option value="sub">Trừ (-)</option>
+            <option value="mul">Nhân (*)</option>
+            <option value="div">Chia (/)</option>
+        </select>
+        
+        <input type="number" name="num2" placeholder="Số thứ hai" step="any" required>
+        
+        <button type="submit">Tính toán ngay</button>
+    </form>
+</div>
+
+</body>
+</html>
