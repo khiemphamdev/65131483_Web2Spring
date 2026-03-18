@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard</title>
+    <title>All pages</title>
     <link rel="stylesheet" href="/styles/style.css">
 </head>
 
@@ -40,12 +40,24 @@
 
         <!-- Content -->
         <div class="content">
-            <div>
-	            	<h3>Thông tin sinh viên</h3>
-	                <p>Họ tên: Phạm Gia Khiêm</p>
-	                <p>MSSV: 65131483</p>
-	                <p>Lớp: 65.CNTT-CLC</p>
-	            </div>
+           <table style="width: 100%; border-collapse: collapse; ">
+			        <thead>
+			            <tr style="background-color: #ddd;">
+			                <th>ID</th>
+			                <th>PageName</th>
+			                <th>ParentPageId</th>
+			                <th>Thao tác</th>
+			            </tr>
+			        </thead>
+			        <tbody>
+			            <tr th:each="p : ${ListPage}">
+			                <td th:text="${p.id}"></td>
+			                <td th:text="${p.pageName}"></td>
+			                <td th:text="${p.parentPageId}">1</td>
+			                <td><a th:href="@{/page/detailPage/{id}(id=${p.id})}">view</a> <a href="">edit</a> <a href="">delete</a></td>
+			            </tr>
+			        </tbody>
+    			</table>
         </div>
 
     </div>

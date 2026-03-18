@@ -29,7 +29,7 @@
         <!-- Sidebar -->
         <div class="sidebar">
             <h3>Dashboard</h3>
-            <ul>
+             <ul>
             	<li> <a th:href="@{/dashboard}">Dashboard</a></li>
                 <li>  <a th:href="@{/page/all}">Page-List</a></li>
                 <li> <a th:href="@{/page/new}">Page-Addnew</a></li>
@@ -40,12 +40,24 @@
 
         <!-- Content -->
         <div class="content">
-            <div>
-	            	<h3>Thông tin sinh viên</h3>
-	                <p>Họ tên: Phạm Gia Khiêm</p>
-	                <p>MSSV: 65131483</p>
-	                <p>Lớp: 65.CNTT-CLC</p>
-	            </div>
+             <table style="width: 100%; border-collapse: collapse;">
+			        <thead>
+			            <tr style="background-color: #ddd;">
+			                <th>ID</th>
+			                <th>Tên Post</th>
+			                <th>Mã danh mục</th>
+			                <th>Thao tác</th>
+			            </tr>
+			        </thead>
+			        <tbody>
+			            <tr th:each="p : ${ListPost}">
+			                <td th:text="${p.id}"></td>
+			                <td th:text="${p.title}"></td>
+			                <td th:text="${p.categoryId}">1</td>
+			                <td><a href="">view</a> <a href="">edit</a> <a href="">delete</a></td>
+			            </tr>
+			        </tbody>
+    			</table>
         </div>
 
     </div>

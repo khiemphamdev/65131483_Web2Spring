@@ -1,0 +1,156 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+body{
+    font-family: Arial, sans-serif;
+    height:100vh;
+}
+
+.container{
+    width:100%;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    border:1px solid black;
+}
+
+/* Header */
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 20px;
+    border-bottom:1px solid black;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo img{
+    width:50px;
+}
+
+.user{
+    font-weight:bold;
+}
+
+/* Main layout */
+.main{
+    flex:1;
+    display:flex;
+}
+
+/* Sidebar */
+.sidebar{
+    width:220px;
+    border-right:1px solid black;
+}
+
+.sidebar h3{
+    padding:10px;
+    background:#eee;
+    border-bottom:1px solid black;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar li{
+    padding:10px;
+    border-bottom:1px solid black;
+    cursor:pointer;
+}
+
+.sidebar li:hover{
+    background:#f2f2f2;
+}
+
+/* Content */
+.content{
+   flex: 1;
+    font-size:22px;
+}
+table {
+        margin: auto;
+        border: 2px solid black;
+        border-collapse: collapse;
+        width: 80%;
+    }
+    
+    td, th {
+        border: 1px solid black;
+        padding: 10px;
+    }
+    
+/* Khung bài viết */
+article {
+    width: full;
+    margin: auto;
+    
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+/* Header */
+.article-header {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+}
+
+/* Tiêu đề */
+.article-title {
+    font-size: 28px;
+    color: #222;
+    margin: 0 0 10px 0;
+}
+
+/* Meta (ID, keyword) */
+.article-meta {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 14px;
+    color: #666;
+}
+
+.meta-item {
+    background: #f0f2f5;
+    padding: 5px 10px;
+    border-radius: 6px;
+}
+
+.meta-label {
+    font-weight: 600;
+    color: #333;
+}
+
+/* Nội dung */
+.article-content {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #333;
+    white-space: pre-line; /* giữ xuống dòng */
+}
+
+/* Hiệu ứng hover nhẹ */
+article:hover {
+    transform: translateY(-2px);
+    transition: 0.2s;
+}
+
+/* Footer */
+.footer{
+    text-align:center;
+    padding:10px;
+    border-top:1px solid black;
+}

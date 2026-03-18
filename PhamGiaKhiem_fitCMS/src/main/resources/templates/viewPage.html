@@ -40,12 +40,30 @@
 
         <!-- Content -->
         <div class="content">
-            <div>
-	            	<h3>Thông tin sinh viên</h3>
-	                <p>Họ tên: Phạm Gia Khiêm</p>
-	                <p>MSSV: 65131483</p>
-	                <p>Lớp: 65.CNTT-CLC</p>
-	            </div>
+            <div class="article-container">
+        <a th:href="@{/page/all}" class="btn-back">&larr; Quay lại danh sách</a>
+
+        <article>
+            <header class="article-header">
+                <h1 class="article-title" th:text="${page.pageName}">Tiêu đề trang tin tức</h1>
+                
+                <div class="article-meta">
+                    <span class="meta-item">
+                        <span class="meta-label">ID:</span> 
+                        <span th:text="${page.id}">P01</span>
+                    </span>
+                    <span class="meta-item" th:if="${page.keyWord != null and !page.keyWord.isEmpty()}">
+                        <span class="meta-label">Từ khóa:</span> 
+                        <span th:text="${page.keyWord}">tin tức, công nghệ</span>
+                    </span>
+                </div>
+            </header>
+
+            <div class="article-content" th:text="${page.content}">
+                Nội dung chi tiết của trang sẽ được hiển thị ở đây...
+            </div>
+        </article>
+    </div>
         </div>
 
     </div>
