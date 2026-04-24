@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cửa hàng Sản phẩm</title>
+    <style>
+        table { width: 80%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+        th { background: #f2f2f2; }
+        .filter { margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+    <h1>Danh sách sản phẩm</h1>
+
+    <div class="filter">
+        <label>Lọc theo thể loại:</label>
+        <select onchange="location = this.value;">
+            <option th:value="@{/products}">Tất cả sản phẩm</option>
+            <option th:each="cat : ${categories}" 
+                    th:value="@{/products/category/{id}(id=${cat.id})}"
+                    th:text="${cat.name}"
+                    th:selected="${cat.id == selectedCatId}">
+            </option>
+        </select>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên sản phẩm</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+                <th>Loại</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="p : ${products}">
+                <td th:text="${p.id}"></td>
+                <td>
+    <a th:href="@{/products/detail/{id}(id=${p.id})}" 
+       th:text="${p.name}" 
+       style="text-decoration: none; color: blue;">
+    </a>
+</td>
+                <td th:text="${#numbers.formatDecimal(p.price, 0, 'COMMA', 0, 'POINT')} + ' VNĐ'"></td>
+                <td th:text="${p.quantity}"></td>
+                <td th:text="${p.category != null ? p.category.name : 'Chưa phân loại'}"></td>
+            </tr>
+            <tr th:if="${#lists.isEmpty(products)}">
+                <td colspan="5" style="text-align: center;">Không tìm thấy sản phẩm nào.</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

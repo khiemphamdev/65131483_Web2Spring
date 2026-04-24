@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${product.name}">Chi tiết sản phẩm</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 40px; color: #333; }
+        .container { max-width: 800px; margin: auto; border: 1px solid #ddd; padding: 20px; border-radius: 8px; }
+        .product-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .price { color: #e44d26; font-size: 24px; font-weight: bold; }
+        .info { margin: 20px 0; }
+        .info p { margin: 10px 0; }
+        .label { font-weight: bold; width: 150px; display: inline-block; }
+        .back-btn { display: inline-block; margin-top: 20px; padding: 10px 20px; background: #6c757d; color: white; text-decoration: none; border-radius: 4px; }
+        .back-btn:hover { background: #5a6268; }
+        .category-tag { background: #f0f0f0; padding: 4px 8px; border-radius: 4px; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="product-header">
+        <h1 th:text="${product.name}">Tên sản phẩm</h1>
+        <span class="price" th:text="${#numbers.formatDecimal(product.price, 0, 'COMMA', 0, 'POINT')} + ' VNĐ'"></span>
+    </div>
+
+    <div class="info">
+        <p>
+            <span class="label">Mã sản phẩm:</span>
+            <span th:text="${product.id}"></span>
+        </p>
+        <p>
+            <span class="label">Danh mục:</span>
+            <span class="category-tag" th:text="${product.category != null ? product.category.name : 'Chưa phân loại'}"></span>
+        </p>
+        <p>
+            <span class="label">Số lượng còn:</span>
+            <span th:text="${product.quantity}"></span>
+        </p>
+        <p>
+            <span class="label">Mô tả:</span>
+        </p>
+        <div style="background: #fdfdfd; padding: 15px; border: 1px solid #fafafa;" 
+             th:text="${product.description != null ? product.description : 'Không có mô tả cho sản phẩm này.'}">
+        </div>
+    </div>
+
+    <a th:href="@{/products}" class="back-btn">← Quay lại danh sách</a>
+</div>
+
+</body>
+</html>
